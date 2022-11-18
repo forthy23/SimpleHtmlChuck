@@ -1,0 +1,35 @@
+<html><head>
+<style>
+    .btn-info {
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+</style>
+    <title>Think Like Chuck</title>
+</head><body>
+    <img id="infoimg" src="https://api.chucknorris.io/img/chucknorris_logo_coloured_small.png" />
+    <p id='info'></p>
+    <p id='infotime'></p>
+    <button class="btn btn-info" onclick="getBtcData()">Chuck Me!</button>
+</body><script>
+const getBtcData = async () => {
+   fetch('https://api.chucknorris.io/jokes/random')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    document.getElementById("info").innerHTML = '<b>' + data.value + '</b>';
+  });
+}
+
+getBtcData();
+
+/*
+tcount=setInterval(function(){
+  tcount++
+  if (tcount==10) {getBtcData(); tcount=0}
+  document.getElementById("infotime").innerHTML = 'Next joke in ' + (10-tcount) + ' seconds'
+},1000);
+*/
+</script>
+</html>
