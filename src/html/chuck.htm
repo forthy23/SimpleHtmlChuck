@@ -19,6 +19,8 @@ const getBtcData = async () => {
   .then(data => {
     console.log(data);
     document.getElementById("info").innerHTML = '<b>' + data.value + '</b>';
+    var dt = new Date();
+    document.getElementById("infotime").innerHTML = dt.toLocaleString();
   });
 }
 
